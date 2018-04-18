@@ -6,6 +6,7 @@ interactive webpage that enables users to change colors of tiles on a website in
 - Clone the repository
 - Install dependencies with `npm install`
 - Run `npm run start` to turn on watchers for HTML and CSS
+ - This script watches for changes to the `_sass/main.scss` and `_javascript/main.js` and transpiles them to `css/main.css` and `lib/main.js` respectively. 
 - Run live however you prefer. I recommend using [live-server](https://github.com/tapio/live-server).
 
 ---
