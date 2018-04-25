@@ -11,8 +11,10 @@ $(document).ready(function() {
 
 function changeColor() {
     if (d3.select(this).hasClass('is-primary')) {
+        console.log('Changed Primary Color')
         d3.select(this).removeClass('is-primary').addClass('is-secondary');
     } else if (d3.select(this).hasClass('is-secondary')) {
+        console.log('Changed Secondary Color')
         d3.select(this).removeClass('is-secondary').addClass('is-primary');
     }
 }
