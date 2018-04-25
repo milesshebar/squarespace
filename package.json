@@ -55,7 +55,9 @@
   },
   "version": "0.0.2",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^5.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milesshebar/piet.git"
