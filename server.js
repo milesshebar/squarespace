@@ -29,29 +29,38 @@ app.use('/', express.static(path.join(__dirname, 'html')));
 
 io.on('connection', (s) => {
   console.log('Socket.io client connected');
-  s.emit('color', color);
+  s.emit('message', {id: 't1', colorname: t1});
+  s.emit('message', {id: 't2', colorname: t2});
+  s.emit('message', {id: 't3', colorname: t3});
+  s.emit('message', {id: 't4', colorname: t4});
+  s.emit('message', {id: 't5', colorname: t5});
+  s.emit('message', {id: 't6', colorname: t6});
+  s.emit('message', {id: 't7', colorname: t7});
+  s.emit('message', {id: 't8', colorname: t8});
+  s.emit('message', {id: 't9', colorname: t9});
 });
 
 app.post('/color', (req, res) => {
   color = req.body.color;
   console.log('Changing color to', color);
-  io.emit('color', color);
-  res.send({ color });
+  io.emit('color', color, 'tile', tile);
+  res.send({ color, tile });
+  'message'
 });
 
-app.get('/color/:color', (req, res) => {
+/*app.get('/color/:color', (req, res) => {
   color = req.params.color.replace('+', '#');
   console.log('Changing color to', color);
   io.emit('color', color);
   res.send({ color });
-});
+});*/
 
-app.post('/message', (req, res) => {
+/*app.post('/message', (req, res) => {
   color = req.body.Body;
   console.log('Changing color to', color);
   io.emit('color', color);
   res.end();
-});
+});*/
 
 server.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
