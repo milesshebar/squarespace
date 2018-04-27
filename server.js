@@ -40,6 +40,8 @@ io.on('connection', (s) => {
   s.emit('message', {id: '#t9', colorname: t9});
 });
 
+
+
 app.post('/color', (req, res) => {
   color = req.body.color;
   console.log('Changing color to', color);
@@ -47,6 +49,8 @@ app.post('/color', (req, res) => {
   res.send({ color });
   'message'
 });
+
+//io.on('message', function)
 
 /*app.get('/color/:color', (req, res) => {
   color = req.params.color.replace('+', '#');
