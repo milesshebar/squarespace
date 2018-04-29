@@ -5,7 +5,7 @@ var s= io.connect('http://localhost:8080');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Hello Bulma!');
   d3.selectAll('tile is-child notification').on('click', function() {
-    console.log(this.id + 'ID clicked')
+    console.log(this.id + 'ID clicked');
     s.emit('message', {id: this.id});
   });
 });
