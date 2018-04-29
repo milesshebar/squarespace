@@ -51,8 +51,36 @@ app.post('/color', (req, res) => {
   'message'
 });
 
-io.on('/message', (req, res) =>{
+io.on('message', function(message) {
   //set tile color to next color in order
+  console.log(message.id);
+  if(message.id==="t1"){
+    t1 = message.color;
+  }
+  else if(messaage.id==="t2"){
+    t2 = message.color;
+  }
+  else if(messaage.id==="t3"){
+    t3 = message.color;
+  }
+  else if(messaage.id==="t4"){
+    t4 = message.color;
+  }
+  else if(messaage.id==="t5"){
+    t5 = message.color;
+  }
+  else if(messaage.id==="t6"){
+    t6 = message.color;
+  }
+  else if(messaage.id==="t7"){
+    t7 = message.color;
+  }
+  else if(messaage.id==="t8"){
+    t8 = message.color;
+  }
+  else if(messaage.id==="t9"){
+    t9 = message.color;
+  }
   //push changes to clients
 });
 
@@ -74,4 +102,13 @@ server.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
 });
 
-console.log('node-live-color example - see: https://github.com/rsp/node-live-color');
+function changeColor(color, id){
+  if(color==='is-danger'){
+    id = 'is-primary';
+  }
+  if(color==='is-danger'){
+    id = 'is-primary';
+  }
+}
+
+//console.log('node-live-color example - see: https://github.com/rsp/node-live-color');
