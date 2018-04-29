@@ -25,6 +25,6 @@ s.on('message', function(message) {
     } else if(message.colorname == 'is-danger') {
       d3.select(message.id).removeClass('is-warning').addClass(message.colorname);
     } else {
-      console,log('Error loading color class');
+      console.log('Error loading color class');
     }
 });
