@@ -54,7 +54,7 @@ app.post('/color', (req, res) => {
 io.on('message', function(message) {
   //set tile color to next color in order
   console.log(message.id);
-  changeColor(message.id);
+  getVar(message.id);
   //push changes to clients
 });
 
@@ -97,6 +97,37 @@ function changeColor(id){
   }
   else {
     console.log('Error loading color class');
+  }
+}
+
+function getVar(idName){
+  if(idName === "#t1"){
+    changeColor(t1);
+    io.emit('message',{id: idName, colorname: t1});
+  }else if(idName === '#t2'){
+    changeColor(t2);
+    io.emit('message',{id: idName, colorname: t2});
+  }else if(idName === '#t3'){
+    changeColor(t3);
+    io.emit('message',{id: idName, colorname: t3});
+  }else if(idName === '#t4'){
+    changeColor(t4);
+    io.emit('message',{id: idName, colorname: t4});
+  }else if(idName === '#t5'){
+    changeColor(t5);
+    io.emit('message',{id: idName, colorname: t5});
+  }else if(idName === '#t6'){
+    changeColor(t6);
+    io.emit('message',{id: idName, colorname: t5});
+  }else if(idName === '#t7'){
+    changeColor(t7);
+    io.emit('message',{id: idName, colorname: t7});
+  }else if(idName === '#t8'){
+    changeColor(t8);
+    io.emit('message',{id: idName, colorname: t8});
+  }else if(idName === '#t9'){
+    changeColor(t9);
+    io.emit('message',{id: idName, colorname: t9});
   }
 }
 
