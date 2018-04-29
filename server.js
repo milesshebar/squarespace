@@ -54,24 +54,7 @@ app.post('/color', (req, res) => {
 io.on('message', function(message) {
   //set tile color to next color in order
   console.log(message.id);
-  if(message.id==="t1"){
-  }
-  else if(message.id==="t2"){
-  }
-  else if(message.id==="t3"){
-  }
-  else if(message.id==="t4"){
-  }
-  else if(message.id==="t5"){
-  }
-  else if(message.id==="t6"){
-  }
-  else if(message.id==="t7"){
-  }
-  else if(message.id==="t8"){
-  }
-  else if(message.id==="t9"){
-  }
+  changeColor(message.id);
   //push changes to clients
 });
 
@@ -94,17 +77,26 @@ server.listen(port, () => {
 });
 
 function changeColor(id){
-  if(color==='is-danger'){
+  if(id==='is-danger'){
     id = 'is-primary';
   }
-  if(color==='is-primary'){
+  else if(id==='is-primary'){
     id = 'is-link';
   }
-  if(color==='is-link'){
+  else if(id==='is-link'){
     id = 'is-info';
   }
-  if(color==='is-info'){
+  else if(id==='is-info'){
     id = 'is-success';
+  }
+  else if(id==='is-success'){
+    id = 'is-warning';
+  }
+  else if(id==='is-warning'){
+    id = 'is-danger';
+  }
+  else {
+    console.log('Error loading color class');
   }
 }
 
