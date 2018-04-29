@@ -38,6 +38,7 @@ io.on('connection', (s) => {
   s.emit('message', {id: '#t7', colorname: t7});
   s.emit('message', {id: '#t8', colorname: t8});
   s.emit('message', {id: '#t9', colorname: t9});
+  //push current state if tiles to connection
 });
 
 
@@ -50,7 +51,10 @@ app.post('/color', (req, res) => {
   'message'
 });
 
-//io.on('message', function)
+io.on('/message', (req, res) =>{
+  //set tile color to next color in order
+  //push changes to clients
+});
 
 /*app.get('/color/:color', (req, res) => {
   color = req.params.color.replace('+', '#');
