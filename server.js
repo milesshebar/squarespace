@@ -55,31 +55,22 @@ io.on('message', function(message) {
   //set tile color to next color in order
   console.log(message.id);
   if(message.id==="t1"){
-    t1 = message.color;
   }
-  else if(messaage.id==="t2"){
-    t2 = message.color;
+  else if(message.id==="t2"){
   }
-  else if(messaage.id==="t3"){
-    t3 = message.color;
+  else if(message.id==="t3"){
   }
-  else if(messaage.id==="t4"){
-    t4 = message.color;
+  else if(message.id==="t4"){
   }
-  else if(messaage.id==="t5"){
-    t5 = message.color;
+  else if(message.id==="t5"){
   }
-  else if(messaage.id==="t6"){
-    t6 = message.color;
+  else if(message.id==="t6"){
   }
-  else if(messaage.id==="t7"){
-    t7 = message.color;
+  else if(message.id==="t7"){
   }
-  else if(messaage.id==="t8"){
-    t8 = message.color;
+  else if(message.id==="t8"){
   }
-  else if(messaage.id==="t9"){
-    t9 = message.color;
+  else if(message.id==="t9"){
   }
   //push changes to clients
 });
@@ -102,7 +93,7 @@ server.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
 });
 
-function changeColor(color, id){
+function changeColor(id){
   if(color==='is-danger'){
     id = 'is-primary';
   }
