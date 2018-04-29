@@ -10,7 +10,7 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-const port = process.env.PORT || 3338;
+const port = process.env.PORT || 3338; //has to be higher than 8000
 
 let color = 'is-primary';
 let tile = '';
