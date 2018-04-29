@@ -97,8 +97,14 @@ function changeColor(id){
   if(color==='is-danger'){
     id = 'is-primary';
   }
-  if(color==='is-danger'){
-    id = 'is-primary';
+  if(color==='is-primary'){
+    id = 'is-link';
+  }
+  if(color==='is-link'){
+    id = 'is-info';
+  }
+  if(color==='is-info'){
+    id = 'is-success';
   }
 }
 

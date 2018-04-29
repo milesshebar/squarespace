@@ -19,7 +19,7 @@ s.on('message', function(message) {
       d3.select(message.id).removeClass('is-primary').addClass(message.colorname);
     } else if(message.colorname == 'is-info') {
       d3.select(message.id).removeClass('is-link').addClass(message.colorname);
-    } else if(message.colorname == 'is-sucess') {
+    } else if(message.colorname == 'is-success') {
       d3.select(message.id).removeClass('is-info').addClass(message.colorname);
     } else if(message.colorname == 'is-warning') {
       d3.select(message.id).removeClass('is-success').addClass(message.colorname);
