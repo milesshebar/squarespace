@@ -1,6 +1,6 @@
 //import {select, selectAll} from "d3-selection";
 
-var s=io.connect('http://localhost')
+var s= io.connect('http://cslab.kenyon.edu:8080');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Hello Bulma!');

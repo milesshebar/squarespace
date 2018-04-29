@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require('path');
+/*const path = require('path');
 const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
@@ -10,7 +10,44 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-const port = process.env.PORT || 3338;
+const port = process.env.PORT || 3338;*/
+
+var http = require('http');
+var fs = require('fs');
+
+// Loading the index file . html displayed to the client
+var server = http.createServer(function(req, res) {
+  var url = req.url;
+  // If no path, get the index.html
+  if (url == "/") url = "/index.html";
+  // get the file extension (needed for Content-Type)
+  var ext = url.split('.').pop();
+  console.log(url + "  :  " + ext);
+  // convert file type to correct Content-Type
+  var memeType = 'html'; // default
+  switch (ext) {
+    case 'css':
+      memeType = 'css';
+      break;
+    case 'png':
+      memeType = 'png';
+      break;
+    case 'jpg':
+      memeType = 'jpeg';
+      break;
+  }
+  // Send the requested file
+  fs.readFile('.' + url, 'utf-8', function(error, content) {
+    res.writeHead(200, {
+      "Content-Type": "text/" + memeType
+    });
+    res.end(content);
+  });
+});
+
+console.log("Loaded index file");
+// Loading socket.io
+var io = require('socket.io').listen(server);
 
 let color = 'is-primary';
 let tile = '';
@@ -24,10 +61,10 @@ let t7 = 'is-primary';
 let t8 = 'is-primary';
 let t9 = 'is-primary';
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', express.static(path.join(__dirname, 'html')));
+/*app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', express.static(path.join(__dirname, 'html')));*/
 
-io.on('connection', (s) => {
+io.sockets.on('connection', (s) => {
   console.log('Socket.io client connected');
   s.emit('message', {id: '#t1', colorname: t1});
   s.emit('message', {id: '#t2', colorname: t2});
@@ -43,13 +80,13 @@ io.on('connection', (s) => {
 
 
 
-app.post('/color', (req, res) => {
+/*app.post('/color', (req, res) => {
   color = req.body.color;
   console.log('Changing color to', color);
   io.emit('color', color);
   res.send({ color });
   'message'
-});
+});*/
 
 io.on('message', function(message) {
   //set tile color to next color in order
@@ -72,9 +109,9 @@ io.on('message', function(message) {
   res.end();
 });*/
 
-server.listen(port, () => {
+/*server.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
-});
+});*/
 
 function changeColor(id){
   if(id==='is-danger'){
@@ -130,5 +167,7 @@ function getVar(idName){
     io.emit('message',{id: idName, colorname: t9});
   }
 }
+
+server.listen(8080);
 
 //console.log('node-live-color example - see: https://github.com/rsp/node-live-color');
