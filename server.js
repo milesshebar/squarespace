@@ -10,6 +10,7 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
+<<<<<<< HEAD
 const port = process.env.PORT || 3338;*/
 
 var http = require('http');
@@ -48,6 +49,9 @@ var server = http.createServer(function(req, res) {
 console.log("Loaded index file");
 // Loading socket.io
 var io = require('socket.io').listen(server);
+=======
+const port = process.env.PORT || 3338; //has to be higher than 8000
+>>>>>>> dae2ca31f9bcace5a37e81239ea4b85a14289317
 
 let color = 'is-primary';
 let tile = '';
