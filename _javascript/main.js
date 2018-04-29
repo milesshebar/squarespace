@@ -1,6 +1,6 @@
-import {select, selectAll} from "d3-selection";
+//import {select, selectAll} from "d3-selection";
 
-var s=io();
+var s=io.connect('http://localhost')
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Hello Bulma!');
