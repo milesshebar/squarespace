@@ -130,7 +130,7 @@ function getVar(idName){
     io.emit('message',{id: idName, colorname: t9});
   }
 }
-var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+/*var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 s.on('message', function(message) {
   incrementTile(message.id);
@@ -139,33 +139,52 @@ s.on('message', function(message) {
 function incrementTile(tileId){
   if(tileId === 't1'){
     tiles[0]++;
-    io.emit('message',{id: tileId, colorValue: tiles[0]});
+    updateClient(tileId, tiles[0]);
   }else if(tileId==='t2'){
     tiles[1]++;
-    io.emit('message',{id: tileId, colorValue: tiles[1]});
+    updateClient(tileId, tiles[1]);
   }else if(tileId==='t3'){
     tiles[2]++;
-    io.emit('message',{id: tileId, colorValue: tiles[2]});
+    updateClient(tileId, tiles[2]);
   }else if(tileId==='t4'){
     tiles[3]++;
-    io.emit('message',{id: tileId, colorValue: tiles[3]});
+    updateClient(tileId, tiles[3]);
   }else if(tileId==='t5'){
     tiles[4]++;
-    io.emit('message',{id: tileId, colorValue: tiles[4]});
+    updateClient(tileId, tiles[4]);
   }else if(tileId==='t6'){
     tiles[5]++;
-    io.emit('message',{id: tileId, colorValue: tiles[5]});
+    updateClient(tileId, tiles[5]);
   }else if(tileId==='t7'){
     tiles[6]++;
-    io.emit('message',{id: tileId, colorValue: tiles[6]});
+    updateClient(tileId, tiles[6]);
   }else if(tileId==='t8'){
     tiles[7]++;
-    io.emit('message',{id: tileId, colorValue: tiles[7]});
+    updateClient(tileId, tiles[7]);
   }else if(tileId==='t9'){
     tiles[8]++;
-    io.emit('message',{id: tileId, colorValue: tiles[8]});
+    updateClient(tileId, tiles[8]);
   }
 }
+
+updateClient(tileNum, colorInt){
+  var colorString;
+  if(colorInt%6===0){
+    colorString = 'is-primary';
+  }else if(colorInt%6===1){
+    colorString = 'is-link';
+  }else if(colorInt%6===2){
+    colorString = 'is-info';
+  }else if(colorInt%6===3){
+    colorString = 'is-success';
+  }else if(colorInt%6===4){
+    colorString = 'is-warning';
+  }else if(colorInt%6===5){
+    colorString = 'is-danger';
+  }
+  io.emit('message',{id: tileNum, colorname: colorString});
+}*/
+
 
 server.listen(8080);
 
