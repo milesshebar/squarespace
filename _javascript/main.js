@@ -12,18 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 s.on('message', function(message) {
     //message: {id: '#tx', colorname: 'is-color'}
-    console.log(message.id + message.colorname);
-    if(message.colorname === 'is-primary') {
+    if(message.colorname == 'is-primary') {
       $(message.id).removeClass('is-danger').addClass(message.colorname);
-    } else if(message.colorname === 'is-link') {
+    } else if(message.colorname == 'is-link') {
       $(message.id).removeClass('is-primary').addClass(message.colorname);
-    } else if(message.colorname === 'is-info') {
+    } else if(message.colorname == 'is-info') {
       $(message.id).removeClass('is-link').addClass(message.colorname);
-    } else if(message.colorname === 'is-success') {
+    } else if(message.colorname == 'is-success') {
       $(message.id).removeClass('is-info').addClass(message.colorname);
-    } else if(message.colorname === 'is-warning') {
+    } else if(message.colorname == 'is-warning') {
       $(message.id).removeClass('is-success').addClass(message.colorname);
-    } else if(message.colorname === 'is-danger') {
+    } else if(message.colorname == 'is-danger') {
       $(message.id).removeClass('is-warning').addClass(message.colorname);
     } else {
       console.log('Error loading color class');
