@@ -130,6 +130,42 @@ function getVar(idName){
     io.emit('message',{id: idName, colorname: t9});
   }
 }
+var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+s.on('message', function(message) {
+  incrementTile(message.id);
+});
+
+function incrementTile(tileId){
+  if(tileId === 't1'){
+    tiles[0]++;
+    io.emit('message',{id: tileId, colorValue: tiles[0]});
+  }else if(tileId==='t2'){
+    tiles[1]++;
+    io.emit('message',{id: tileId, colorValue: tiles[1]});
+  }else if(tileId==='t3'){
+    tiles[2]++;
+    io.emit('message',{id: tileId, colorValue: tiles[2]});
+  }else if(tileId==='t4'){
+    tiles[3]++;
+    io.emit('message',{id: tileId, colorValue: tiles[3]});
+  }else if(tileId==='t5'){
+    tiles[4]++;
+    io.emit('message',{id: tileId, colorValue: tiles[4]});
+  }else if(tileId==='t6'){
+    tiles[5]++;
+    io.emit('message',{id: tileId, colorValue: tiles[5]});
+  }else if(tileId==='t7'){
+    tiles[6]++;
+    io.emit('message',{id: tileId, colorValue: tiles[6]});
+  }else if(tileId==='t8'){
+    tiles[7]++;
+    io.emit('message',{id: tileId, colorValue: tiles[7]});
+  }else if(tileId==='t9'){
+    tiles[8]++;
+    io.emit('message',{id: tileId, colorValue: tiles[8]});
+  }
+}
 
 server.listen(8080);
 
