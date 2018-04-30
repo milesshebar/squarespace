@@ -49,20 +49,17 @@ console.log("Loaded index file");
 // Loading socket.io
 var io = require('socket.io').listen(server);
 
-let color = 'is-primary';
-let tile = '';
-let t1 = 'is-primary';
-let t2 = 'is-primary';
-let t3 = 'is-primary';
-let t4 = 'is-primary';
-let t5 = 'is-primary';
-let t6 = 'is-primary';
-let t7 = 'is-primary';
-let t8 = 'is-primary';
-let t9 = 'is-primary';
-
-/*app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', express.static(path.join(__dirname, 'html')));*/
+//let color = 'is-primary';
+//let tile = '';
+var t1 = 'is-primary';
+var t2 = 'is-primary';
+var t3 = 'is-primary';
+var t4 = 'is-primary';
+var t5 = 'is-primary';
+var t6 = 'is-primary';
+var t7 = 'is-primary';
+var t8 = 'is-primary';
+var t9 = 'is-primary';
 
 io.sockets.on('connection', (s) => {
   console.log('Socket.io client connected');
@@ -83,51 +80,16 @@ io.sockets.on('connection', (s) => {
     getVar(message.id);
     //push changes to clients
   });
-
-
 });
 
-
-
-/*app.post('/color', (req, res) => {
-  color = req.body.color;
-  console.log('Changing color to', color);
-  io.emit('color', color);
-  res.send({ color });
-  'message'
-});*/
-
-/*io.sockets.on('message', function(message) {
-  //set tile color to next color in order
-  console.log(message.id);
-  getVar(message.id);
-  //push changes to clients
-});*/
-
-/*app.get('/color/:color', (req, res) => {
-  color = req.params.color.replace('+', '#');
-  console.log('Changing color to', color);
-  io.emit('color', color);
-  res.send({ color });
-});*/
-
-/*app.post('/message', (req, res) => {
-  color = req.body.Body;
-  console.log('Changing color to', color);
-  io.emit('color', color);
-  res.end();
-});*/
-
-/*server.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}/`);
-});*/
-
 function changeColor(id){
+  //Change color is not changing the color of the tile just the id variable
   if(id=='is-danger'){
     id = 'is-primary';
   }
   else if(id=='is-primary'){
     id = 'is-link';
+    console.log("Changed " + id + " color");
   }
   else if(id=='is-link'){
     id = 'is-info';
@@ -173,6 +135,7 @@ function getVar(idName){
     io.emit('message',{id: idName, colorname: t8});
   }else if(idName === 't9'){
     changeColor(t9);
+    console.log(t9 + " colorvalue");
     io.emit('message',{id: idName, colorname: t9});
   }
 }
