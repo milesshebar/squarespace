@@ -130,11 +130,25 @@ function getVar(idName){
     io.emit('message',{id: idName, colorname: t9});
   }
 }
-/*var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-s.on('message', function(message) {
-  incrementTile(message.id);
+/*
+io.sockets.on('connection', (s) => {
+  console.log('Socket.io client connected');
+  s.emit('message', {id: 't1', colorname: getColorString(tiles[0])});
+  s.emit('message', {id: 't2', colorname: getColorString(tiles[1])});
+  s.emit('message', {id: 't3', colorname: getColorString(tiles[2])});
+  s.emit('message', {id: 't4', colorname: getColorString(tiles[3])});
+  s.emit('message', {id: 't5', colorname: getColorString(tiles[4])});
+  s.emit('message', {id: 't6', colorname: getColorString(tiles[5])});
+  s.emit('message', {id: 't7', colorname: getColorString(tiles[6])});
+  s.emit('message', {id: 't8', colorname: getColorString(tiles[7])});
+  s.emit('message', {id: 't9', colorname: getColorString(tiles[8])});
+
+  s.on('message', function(message) {
+    incrementTile(message.id);
+  });
 });
+var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function incrementTile(tileId){
   if(tileId === 't1'){
@@ -168,21 +182,26 @@ function incrementTile(tileId){
 }
 
 updateClient(tileNum, colorInt){
-  var colorString;
-  if(colorInt%6===0){
-    colorString = 'is-primary';
-  }else if(colorInt%6===1){
-    colorString = 'is-link';
-  }else if(colorInt%6===2){
-    colorString = 'is-info';
-  }else if(colorInt%6===3){
-    colorString = 'is-success';
-  }else if(colorInt%6===4){
-    colorString = 'is-warning';
-  }else if(colorInt%6===5){
-    colorString = 'is-danger';
-  }
+  var colorString = getColorString(colorInt);
   io.emit('message',{id: tileNum, colorname: colorString});
+}
+
+getColorString(colorInt){
+  if(colorInt%6===0){
+    return 'is-primary';
+  }else if(colorInt%6===1){
+    return 'is-link';
+  }else if(colorInt%6===2){
+    return 'is-info';
+  }else if(colorInt%6===3){
+    return 'is-success';
+  }else if(colorInt%6===4){
+    return 'is-warning';
+  }else if(colorInt%6===5){
+    return 'is-danger';
+  }else{
+    console.log('Error getting color info');
+  }
 }*/
 
 
