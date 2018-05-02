@@ -8,11 +8,13 @@
 // Update the blue shade, used for links
 $blue: #06bcef;
 $pink: #ffb3b3;
+$orange: #ff6600
 // Update the sans-serif font family
 $family-sans-serif: "Helvetica", "Arial", sans-serif;
 // 3. Set the derived variables
 $primary: $blue;
-$secondary: $pink;
+$info: $pink;
+$link: $orange
 // 4. Import the rest of Bulma
 
 @import "../node_modules/bulma/bulma";
