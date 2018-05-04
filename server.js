@@ -1,17 +1,5 @@
 'use strict';
 
-/*const path = require('path');
-const express = require('express');
-const http = require('http');
-const socket = require('socket.io');
-const bodyParser = require('body-parser');
-
-const app = express();
-const server = http.Server(app);
-const io = socket(server);
-
-const port = process.env.PORT || 3338;*/
-
 var http = require('http');
 var fs = require('fs');
 
@@ -101,31 +89,32 @@ function changeColor(id){
 }
 
 function getVar(idName){
-  if(idName === "t1"){
+  idName = "#" + idName;
+  if(idName === "#t1"){
     t1 = changeColor(t1);
     io.emit('message',{id: idName, colorname: t1});
-  } else if(idName === 't2'){
+  } else if(idName === '#t2'){
     t2 = changeColor(t2);
     io.emit('message',{id: idName, colorname: t2});
-  } else if(idName === 't3'){
+  } else if(idName === '#t3'){
     t3 = changeColor(t3);
     io.emit('message',{id: idName, colorname: t3});
-  } else if(idName === 't4'){
+  } else if(idName === '#t4'){
     t4 = changeColor(t4);
     io.emit('message',{id: idName, colorname: t4});
-  } else if(idName === 't5'){
+  } else if(idName === '#t5'){
     t5 = changeColor(t5);
     io.emit('message',{id: idName, colorname: t5});
-  } else if(idName === 't6'){
+  } else if(idName === '#t6'){
     t6 = changeColor(t6);
-    io.emit('message',{id: idName, colorname: t5});
-  } else if(idName === 't7'){
+    io.emit('message',{id: idName, colorname: t6});
+  } else if(idName === '#t7'){
     t7 = changeColor(t7);
     io.emit('message',{id: idName, colorname: t7});
-  } else if(idName === 't8'){
+  } else if(idName === '#t8'){
     t8 = changeColor(t8);
     io.emit('message',{id: idName, colorname: t8});
-  } else if(idName === 't9'){
+  } else if(idName === '#t9'){
     t9 = changeColor(t9);
     io.emit('message',{id: idName, colorname: t9});
   }
@@ -206,5 +195,6 @@ getColorString(colorInt){
 
 
 server.listen(8080);
+//change this to 9000 to run on cslab
 
 //console.log('node-live-color example - see: https://github.com/rsp/node-live-color');
