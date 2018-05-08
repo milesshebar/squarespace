@@ -1,0 +1,10 @@
+.notification {
+  transition: background-color 200ms;
+}
+
+@media only screen and (max-width: 768px) {
+    .tile {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
