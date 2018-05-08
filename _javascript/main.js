@@ -4,7 +4,6 @@ var s = io.connect('http://localhost:8080');
 //change this link to cslab.kenyon.edu:9000 to run on cslab
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Hello Bulma!');
   d3.selectAll('.tile.is-child').on('click', function() {
     console.log(this.id + ' ID clicked');
     s.emit('message', {id: this.id});
