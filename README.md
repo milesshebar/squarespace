@@ -5,9 +5,9 @@ interactive webpage that enables users to change colors of tiles on a website in
 - Requrires [node](https://nodejs.org/en/) to run locally
 - Clone the repository
 - Install dependencies with `npm install`
-- Run `npm run start` to turn on watchers for HTML and CSS
- - This script watches for changes to the `_sass/main.scss` and `_javascript/main.js` and transpiles them to `css/main.css` and `lib/main.js` respectively. 
-- Run live however you prefer. I recommend using [live-server](https://github.com/tapio/live-server).
+- Run `npm run deploy` to compile static HTML/CSS/JS resources
+ - This script transpiles `_sass/main.scss` and `_javascript/main.js` to `css/main.css` and `lib/main.js` respectively.
+- Run `node server.js` in the directory to host locally on port 8080.
 
 ---
 Created for SCMP368: Software Development at [Kenyon College](http://kenyon.edu) by [@milesshebar](https://github.com/milesshebar),
