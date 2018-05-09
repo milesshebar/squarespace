@@ -51,12 +51,8 @@ io.sockets.on('connection', (s) => {
   });
 });
 
-var numberOfTiles = 16;
-var tiles;
-for(var i = 0; i < numberOfTiles; i++){
-  //makes array of tiles' integer values
-	tiles.push(0);
-}
+var tiles = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 
 function incrementTile(tileId) {
   //increments the array value corresponding with the tile id
