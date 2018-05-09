@@ -142,12 +142,12 @@ function incrementTile(tileId){
   }
 }
 
-updateClient(tileNum, colorInt){
+function updateClient(tileNum, colorInt){
   var colorString = getColorString(colorInt);
   io.emit('message',{id: tileNum, colorname: colorString});
 }
 
-getColorString(colorInt){
+function getColorString(colorInt){
   if(colorInt%6===0){
     return 'is-primary';
   }else if(colorInt%6===1){
