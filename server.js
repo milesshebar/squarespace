@@ -37,7 +37,7 @@ console.log("Loaded index file");
 // Loading socket.io
 var io = require('socket.io').listen(server);
 
-var t1 = 'is-primary';
+/*var t1 = 'is-primary';
 var t2 = 'is-link';
 var t3 = 'is-info';
 var t4 = 'is-success';
@@ -118,55 +118,27 @@ function getVar(idName){
     t9 = changeColor(t9);
     io.emit('message',{id: idName, colorname: t9});
   }
-}
+}*/
 
-/*
+
 io.sockets.on('connection', (s) => {
   console.log('Socket.io client connected');
-  s.emit('message', {id: 't1', colorname: getColorString(tiles[0])});
-  s.emit('message', {id: 't2', colorname: getColorString(tiles[1])});
-  s.emit('message', {id: 't3', colorname: getColorString(tiles[2])});
-  s.emit('message', {id: 't4', colorname: getColorString(tiles[3])});
-  s.emit('message', {id: 't5', colorname: getColorString(tiles[4])});
-  s.emit('message', {id: 't6', colorname: getColorString(tiles[5])});
-  s.emit('message', {id: 't7', colorname: getColorString(tiles[6])});
-  s.emit('message', {id: 't8', colorname: getColorString(tiles[7])});
-  s.emit('message', {id: 't9', colorname: getColorString(tiles[8])});
-
+  for(var i = 0; i < tiles.length; i++){
+    s.emit('message', {id: `#t${i+1}`+, colorname: getColorString(tiles[i])});
+  }
   s.on('message', function(message) {
     incrementTile(message.id);
   });
 });
-var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+var tiles = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function incrementTile(tileId){
-  if(tileId === 't1'){
-    tiles[0]++;
-    updateClient(tileId, tiles[0]);
-  }else if(tileId==='t2'){
-    tiles[1]++;
-    updateClient(tileId, tiles[1]);
-  }else if(tileId==='t3'){
-    tiles[2]++;
-    updateClient(tileId, tiles[2]);
-  }else if(tileId==='t4'){
-    tiles[3]++;
-    updateClient(tileId, tiles[3]);
-  }else if(tileId==='t5'){
-    tiles[4]++;
-    updateClient(tileId, tiles[4]);
-  }else if(tileId==='t6'){
-    tiles[5]++;
-    updateClient(tileId, tiles[5]);
-  }else if(tileId==='t7'){
-    tiles[6]++;
-    updateClient(tileId, tiles[6]);
-  }else if(tileId==='t8'){
-    tiles[7]++;
-    updateClient(tileId, tiles[7]);
-  }else if(tileId==='t9'){
-    tiles[8]++;
-    updateClient(tileId, tiles[8]);
+  //get the id number
+  //tiles[id-1]++
+  //updateClient(tileId, tiles[id-1])
+  var idNum = parseId(tileId);
+  tiles[idNum-1]++;
+  updateClient(tileId, tiles[idNum-1]);
   }
 }
 
@@ -191,7 +163,13 @@ getColorString(colorInt){
   }else{
     console.log('Error getting color info');
   }
-}*/
+}
+
+parseId(idString){
+  var numString = idString.substr(2);
+  return parseInt(numString);
+  //wasn't sure if the id would be #t1 or t1
+}
 
 
 server.listen(8080);
