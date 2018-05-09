@@ -39,6 +39,7 @@ var server = http.createServer(function(req, res) {
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', (s) => {
+  //sends state of tiles upon connection
   for (var i = 0; i < tiles.length; i++) {
     s.emit('message', {
       id: '#t' + `${i + 1}`,
@@ -50,15 +51,22 @@ io.sockets.on('connection', (s) => {
   });
 });
 
-var tiles = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var numberOfTiles = 16;
+var tiles;
+for(var i = 0; i < numberOfTiles; i++){
+  //makes array of tiles' integer values
+	tiles.push(0);
+}
 
 function incrementTile(tileId) {
+  //increments the array value corresponding with the tile id
   var idNum = parseId(tileId);
   tiles[idNum - 1]++;
   updateClient(tileId, tiles[idNum - 1]);
 }
 
 function updateClient(tileNum, colorInt) {
+  //sends tile id and color to client
   var colorString = getColorString(colorInt);
   io.emit('message', {
     id: '#' + tileNum,
@@ -67,6 +75,7 @@ function updateClient(tileNum, colorInt) {
 }
 
 function getColorString(colorInt) {
+  //determines color class for the tile based on the integer in the array
   if (colorInt % 6 === 0) {
     return 'is-primary';
   } else if (colorInt % 6 === 1) {
@@ -85,6 +94,7 @@ function getColorString(colorInt) {
 }
 
 function parseId(idString) {
+  //gets id of tile clicked on the server side and parses the integer in the tile id
   var numString = idString.substr(1);
   return parseInt(numString);
 }
