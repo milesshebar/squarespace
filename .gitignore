@@ -12,3 +12,5 @@ package-lock.json
 _gh_pages
 _site
 node_modules
+css/
+lib/
