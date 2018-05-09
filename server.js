@@ -165,7 +165,7 @@ function getColorString(colorInt){
   }
 }
 
-parseId(idString){
+function parseId(idString){
   var numString = idString.substr(2);
   return parseInt(numString);
   //wasn't sure if the id would be #t1 or t1
