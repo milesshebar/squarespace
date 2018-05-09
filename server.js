@@ -162,6 +162,7 @@ function getColorString(colorInt){
     return 'is-danger';
   }else{
     console.log('Error getting color info');
+
   }
 }
 
