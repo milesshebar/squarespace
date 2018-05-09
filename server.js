@@ -140,7 +140,7 @@ function incrementTile(tileId){
   tiles[idNum-1]++;
   updateClient(tileId, tiles[idNum-1]);
   }
-}
+
 
 function updateClient(tileNum, colorInt){
   var colorString = getColorString(colorInt);
