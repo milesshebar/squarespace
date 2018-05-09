@@ -124,11 +124,7 @@ function getVar(idName){
 io.sockets.on('connection', (s) => {
   console.log('Socket.io client connected');
   for(var i = 0; i < tiles.length; i++){
-<<<<<<< HEAD
     s.emit('message', {id: '#t' + `${i+1}`, colorname: getColorString(tiles[i])});
-=======
-    s.emit('message', {id: `#t${i+1}`, colorname: getColorString(tiles[i])});
->>>>>>> 3f328c2dad4c6386c98541f616cffc5c0d85b5f3
   }
   s.on('message', function(message) {
     incrementTile(message.id);
@@ -145,10 +141,6 @@ function incrementTile(tileId){
   updateClient(tileId, tiles[idNum-1]);
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3f328c2dad4c6386c98541f616cffc5c0d85b5f3
 function updateClient(tileNum, colorInt){
   var colorString = getColorString(colorInt);
   io.emit('message',{id: '#' + tileNum, colorname: colorString});
@@ -174,11 +166,7 @@ function getColorString(colorInt){
 }
 
 function parseId(idString){
-<<<<<<< HEAD
   var numString = idString.substr(1);
-=======
-  var numString = idString.substr(2);
->>>>>>> 3f328c2dad4c6386c98541f616cffc5c0d85b5f3
   return parseInt(numString);
   //wasn't sure if the id would be #t1 or t1
 }
