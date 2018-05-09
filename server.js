@@ -124,7 +124,7 @@ function getVar(idName){
 io.sockets.on('connection', (s) => {
   console.log('Socket.io client connected');
   for(var i = 0; i < tiles.length; i++){
-    s.emit('message', {id: `#t${i+1}`+, colorname: getColorString(tiles[i])});
+    s.emit('message', {id: `#t${i+1}`, colorname: getColorString(tiles[i])});
   }
   s.on('message', function(message) {
     incrementTile(message.id);
