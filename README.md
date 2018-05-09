@@ -1,12 +1,19 @@
-# piet
+# squarespace
 interactive webpage that enables users to change colors of tiles on a website in real time
 
-## Setup for development
-- Requrires [node](https://nodejs.org/en/) to run locally
+## Run your own
+- Requrires [node](https://nodejs.org/en/)
 - Clone the repository
-- Install dependencies with `npm install`
 - Run `npm run deploy` to compile static HTML/CSS/JS resources
  - This script transpiles `_sass/main.scss` and `_javascript/main.js` to `css/main.css` and `lib/main.js` respectively.
+- Navigate to the directory via the command line and run `node server.js` to host locally on port 8080.
+
+## Setup for development
+- Requrires [node](https://nodejs.org/en/)
+- Clone the repository
+- Install dependencies with `npm install`
+- Run `npm run start` to watch for changes and instantly compile them to static HTML/CSS/JS resources as you develop
+- Run `npm run deploy` when you're done to compile static HTML/CSS/JS resources for deployment
 - Run `node server.js` in the directory to host locally on port 8080.
 
 ---
