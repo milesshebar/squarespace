@@ -1,4 +1,4 @@
-# squarespace
+# [squarespace](http://cslab.kenyon.edu:9000)
 interactive webpage that enables users to change colors of tiles on a website in real time
 
 ## Run your own
