@@ -52,7 +52,8 @@ io.sockets.on('connection', (s) => {
 });
 
 var tiles = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
+const colorValues = ['is-primary', 'is-link', 'is-info', 'is-success', 'is-warning', 'is-danger'];
+const numberOfColors = colorValues.length;
 
 function incrementTile(tileId) {
   //increments the array value corresponding with the tile id
@@ -72,21 +73,7 @@ function updateClient(tileNum, colorInt) {
 
 function getColorString(colorInt) {
   //determines color class for the tile based on the integer in the array
-  if (colorInt % 6 === 0) {
-    return 'is-primary';
-  } else if (colorInt % 6 === 1) {
-    return 'is-link';
-  } else if (colorInt % 6 === 2) {
-    return 'is-info';
-  } else if (colorInt % 6 === 3) {
-    return 'is-success';
-  } else if (colorInt % 6 === 4) {
-    return 'is-warning';
-  } else if (colorInt % 6 === 5) {
-    return 'is-danger';
-  } else {
-    console.log('Error getting color info');
-  }
+  return colorValues[colorInt%numberOfColors];
 }
 
 function parseId(idString) {
